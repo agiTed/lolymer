@@ -1,0 +1,30 @@
+{
+   "mikorasu": {
+      "id": 20611511,
+      "name": "mikorasu",
+      "profileIconId": 689,
+      "revisionDate": 1424125984000,
+      "summonerLevel": 30
+   },
+   "akrön": {
+      "id": 27562899,
+      "name": "Akrön",
+      "profileIconId": 23,
+      "revisionDate": 1424195614000,
+      "summonerLevel": 30
+   },
+   "orphea": {
+      "id": 27475606,
+      "name": "Orphea",
+      "profileIconId": 749,
+      "revisionDate": 1424025130000,
+      "summonerLevel": 30
+   },
+   "tiga": {
+      "id": 20739524,
+      "name": "Tiga",
+      "profileIconId": 546,
+      "revisionDate": 1424119520000,
+      "summonerLevel": 30
+   }
+}

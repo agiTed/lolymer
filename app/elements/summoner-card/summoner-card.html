@@ -1,0 +1,71 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="summoner-card" attributes="summonerId apiKey">
+  <template>
+    <core-ajax
+      auto
+      url="https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/{{summonerId}}/summary"
+      params='{"season":"SEASON2015", "api_key":"{{apiKey}}"}'
+      handleAs="json"
+      on-core-response="{{statsResponse}}"
+    ></core-ajax>
+    <core-ajax
+      auto
+      url="../../api/summoner-v1.4.json"
+      handleAs="json"
+      on-core-response="{{summonerResponse}}"
+    ></core-ajax>
+
+    <template if="{{iconId}}">
+      <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/profileicon/{{iconId}}.png" alt="Profile Icon" class="big">
+    </template>
+    <template if="{{statsEnded}}">
+      <div>
+        <p>Unranked games</p>
+        <ul>
+          <li>{{uwins}} wins</li>
+        </ul>
+      </div>
+      <div>
+        <p>Season 5 Ranked games</p>
+        <ul>
+          <li>{{rwins}} wins</li>
+          <li>{{rlosses}} losses</li>
+        </ul>
+      </div>
+    </template>
+
+    <link rel="stylesheet" href="summoner-card.css">
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+        statsResponse : function(e){
+          this.stats = e.detail.response;
+          console.log(this.stats);
+          for(i in this.stats.playerStatSummaries){
+            if(this.stats.playerStatSummaries[i].playerStatSummaryType == "Unranked"){
+              this.uwins = this.stats.playerStatSummaries[i].wins;
+            }
+            if(this.stats.playerStatSummaries[i].playerStatSummaryType == "RankedSolo5x5"){
+              this.rlosses = this.stats.playerStatSummaries[i].losses;
+              this.rwins = this.stats.playerStatSummaries[i].wins;
+            }
+          }
+          this.statsEnded = 1;
+        },
+        summonerResponse : function(e){
+          this.version = "5.3.1";
+          this.summoners = e.detail.response;
+          for(i in this.summoners){
+            if(this.summoners[i].id == this.summonerId){
+              this.iconId = this.summoners[i].profileIconId;
+            }
+          }
+        }
+      });
+    })();
+  </script>
+</polymer-element>
