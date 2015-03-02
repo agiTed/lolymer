@@ -7,8 +7,6 @@
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
 
-  app.RIOT_API_KEY = "YOUR RIOT API KEY HERE";
-
   app.appName = 'LoLymer';
   app.page = 0;
 

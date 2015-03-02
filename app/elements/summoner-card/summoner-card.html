@@ -1,12 +1,11 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="summoner-card" attributes="summonerId apiKey">
+<polymer-element name="summoner-card" attributes="summonerId">
   <template>
     <core-ajax
       auto
-      url="https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/{{summonerId}}/summary"
-      params='{"season":"SEASON2015", "api_key":"{{apiKey}}"}'
+      url="../../api/stats-v1.3.json"
       handleAs="json"
       on-core-response="{{statsResponse}}"
     ></core-ajax>

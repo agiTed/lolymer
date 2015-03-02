@@ -35,8 +35,8 @@
         <!-- Drawer Content -->
         <core-menu selected="{{page}}">
           <core-item label="Tiga"></core-item>
-          <core-item label="Orphea"></core-item>
-<!--           <core-item label="Akrön"></core-item>
+<!--           <core-item label="Orphea"></core-item>
+          <core-item label="Akrön"></core-item>
           <core-item label="Mikorasu"></core-item> -->
         </core-menu>
 
@@ -53,9 +53,9 @@
 
         <!-- Main Content -->
         <core-pages selected="{{page}}">
-          <summoner-card summonerId="20739524" apiKey="{{RIOT_API_KEY}}"></summoner-card>
-          <summoner-card summonerId="27475606" apiKey="{{RIOT_API_KEY}}"></summoner-card>
-<!--           <summoner-card summonerId="27562899"></summoner-card>
+          <summoner-card summonerId="20739524"></summoner-card>
+<!--           <summoner-card summonerId="27475606"></summoner-card>
+          <summoner-card summonerId="27562899"></summoner-card>
           <summoner-card summonerId="20611511"></summoner-card> -->
         </core-pages>
       </core-header-panel>
@@ -63,6 +63,7 @@
 
   </template>
 
+  <script src="/bower_components/page.js/page.js"></script>
   <!-- build:js /scripts/app.js -->
   <script src="/scripts/app.js"></script>
   <!-- endbuild-->

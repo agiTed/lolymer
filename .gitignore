@@ -5,4 +5,3 @@ test/temp
 bower_components
 .tmp
 test/bower_components/
-scripts/app.js
